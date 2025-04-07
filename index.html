@@ -6,8 +6,8 @@
     <title>Last Friday Week Number API</title>
 </head>
 <body>
-    <h1>Last Friday Week Number API</h1>
     <div id="result"></div>
+    <div id="xmlResult"></div>
     <script>
         function getLastFriday(year, month) {
             const lastDay = new Date(year, month + 1, 0);
@@ -27,9 +27,14 @@
             const lastFriday = getLastFriday(today.getFullYear(), today.getMonth());
             const weekNumber = getWeekNumber(lastFriday);
 
-            document.getElementById('result').innerHTML = `
-                <p>Last Friday: ${lastFriday.toISOString().split('T')[0]}</p>
-                <p>Week Number: ${weekNumber}</p>
+          
+
+            document.getElementById('xmlResult').innerHTML = `
+                <pre>
+&lt;week&gt;
+    &lt;number&gt;${weekNumber}&lt;/number&gt;
+&lt;/week&gt;
+                </pre>
             `;
         }
 
