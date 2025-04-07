@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+echo '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,8 +27,8 @@
             const lastFriday = getLastFriday(today.getFullYear(), today.getMonth());
             const weekNumber = getWeekNumber(lastFriday);
 
-            document.getElementById('result').innerHTML = `
-                <p>Last Friday: ${lastFriday.toISOString().split('T')[0]}</p>
+            document.getElementById(\'result\').innerHTML = `
+                <p>Last Friday: ${lastFriday.toISOString().split(\'T\')[0]}</p>
                 <p>Week Number: ${weekNumber}</p>
             `;
         }
@@ -36,4 +36,4 @@
         displayLastFridayWeekNumber();
     </script>
 </body>
-</html>
+</html>' > index.html
