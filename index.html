@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Friday Week Number API</title>
+</head>
+<body>
+    <h1>Last Friday Week Number API</h1>
+    <div id="result"></div>
+    <script>
+        function getLastFriday(year, month) {
+            const lastDay = new Date(year, month + 1, 0);
+            const lastFriday = new Date(lastDay);
+            lastFriday.setDate(lastDay.getDate() - (lastDay.getDay() + 2) % 7);
+            return lastFriday;
+        }
+
+        function getWeekNumber(date) {
+            const startOfYear = new Date(date.getFullYear(), 0, 1);
+            const pastDaysOfYear = (date - startOfYear) / 86400000;
+            return Math.ceil((pastDaysOfYear + startOfYear.getDay() + 1) / 7);
+        }
+
+        function displayLastFridayWeekNumber() {
+            const today = new Date();
+            const lastFriday = getLastFriday(today.getFullYear(), today.getMonth());
+            const weekNumber = getWeekNumber(lastFriday);
+
+            document.getElementById('result').innerHTML = `
+                <p>Last Friday: ${lastFriday.toISOString().split('T')[0]}</p>
+                <p>Week Number: ${weekNumber}</p>
+            `;
+        }
+
+        displayLastFridayWeekNumber();
+    </script>
+</body>
+</html>
