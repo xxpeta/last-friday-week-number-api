@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Last Friday Week Number API</title>
+    
 </head>
 <body>
+
      <div id="result"></div>
     <script>
         function getLastFriday(year, month) {
@@ -27,6 +28,7 @@
             const weekNumber = getWeekNumber(lastFriday);
             const xmlOutput = `
 <week>
+<sts>100</sts>
     <number>${weekNumber}</number>
 </week>`;
             document.getElementById('result').textContent = xmlOutput;
